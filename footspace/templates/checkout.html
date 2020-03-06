@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class='text-center'>Ваш предварительный заказ</h3>
+<br>
+<table class='table'>
+	<tr class='text-center'>
+		<td>Товар</td>
+		<td>Количество</td>
+		<td>Цена</td>
+		<td></td>
+	</tr>
+	{% for item in cart.items.all %}	
+	<tr>
+		<td class='text-center'>{{ item.product.title }}</td>
+		<td class='text-center'>{{ item.quantity }}</td>
+		<td class='text-center' id='cart-item-total-{{ item.id }}'>{{ item.item_total }} руб.</td>
+		<td></td>
+	</tr>
+	{% endfor %}
+
+<tr>
+	<td></td>
+	<td class='text-center'>Итого: </td>
+	<td class='text-center'>{{ cart.cart_total }}</td>
+	<td class='text-center'></td>
+</tr>		
+</table>	
+<a href='{% url "create_order" %}' class='pull-right'><button class='btn btn-success'>Оформить заказ</button></a>
+
+{% endblock content %}
