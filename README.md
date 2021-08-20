@@ -6,4 +6,4 @@ You can start project using command <br>
 ```python manage.py runserver```
 
 ## Authors
-- Artur Mirsaitov
+Artur Mirsaitov
